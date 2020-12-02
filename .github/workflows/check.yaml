@@ -1,0 +1,48 @@
+on:
+  push:
+    branches:
+      - main
+
+name: check
+
+jobs:
+  check:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest,   r: 'devel'}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install grpc/protoc
+        if: runner.os == 'MacOS'
+        run: |
+          brew install openssl
+          brew install grpc
+
+      - name: Session info
+        run: |
+          dir("/usr/local/opt/openssl@1.1/lib/pkgconfig")
+        shell: Rscript {0}
+
+      - name: Search
+        run: |
+          find ~ -iname '*.pc' | grep 'openssl'
+
+      - name: Search 2
+        run: |
+          find ~ -iname '*.pc'
+
+      - name: Search 3
+        run: |
+          find / -iname '*.pc' | grep 'openssl'
+
+      - name: Search 4
+        run: |
+          find / -iname '*.pc' | grep 'openssl'
