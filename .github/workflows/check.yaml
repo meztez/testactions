@@ -18,14 +18,9 @@ jobs:
           - {os: macOS-latest,   r: 'devel'}
 
     steps:
-      - uses: actions/checkout@v2
 
-      - name: Search
+      - name: Session info
         run: |
-          brew install abseil
-
-      - name: Search 2
-        run: |
-          ls /usr/local/opt/abseil/lib
-
+          .Platform
+        shell: Rscript {0}
 
