@@ -26,6 +26,6 @@ jobs:
 
       - name: Search 2
         run: |
-          ls /usr/local/Cellar/abseil
+          ls /usr/local/opt/abseil
 
 
