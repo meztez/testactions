@@ -21,6 +21,5 @@ jobs:
 
       - name: Session info
         run: |
-          Sys.info()
-        shell: Rscript {0}
+          printenv
 
