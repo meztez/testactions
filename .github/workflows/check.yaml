@@ -26,6 +26,6 @@ jobs:
 
       - name: Search 2
         run: |
-          ls /usr/local/opt/abseil
+          ls /usr/local/opt/abseil/lib
 
 
