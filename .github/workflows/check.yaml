@@ -20,29 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install grpc/protoc
-        if: runner.os == 'MacOS'
-        run: |
-          brew install openssl
-          brew install grpc
-
-      - name: Session info
-        run: |
-          dir("/usr/local/opt/openssl@1.1/lib/pkgconfig")
-        shell: Rscript {0}
-
       - name: Search
         run: |
-          find ~ -iname '*.pc' | grep 'openssl'
+          brew install abseil
 
       - name: Search 2
         run: |
-          find ~ -iname '*.pc'
+          pkg-config --libs abseil
 
       - name: Search 3
         run: |
-          find / -iname '*.pc' | grep 'openssl'
+          pkg-config --libs abseil-cpp
 
-      - name: Search 4
-        run: |
-          find / -iname '*.pc' | grep 'openssl'
