@@ -26,9 +26,6 @@ jobs:
 
       - name: Search 2
         run: |
-          pkg-config --libs abseil
+          ls /usr/local/Cellar/abseil
 
-      - name: Search 3
-        run: |
-          pkg-config --libs abseil-cpp
 
