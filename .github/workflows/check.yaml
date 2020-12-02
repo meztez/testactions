@@ -21,6 +21,6 @@ jobs:
 
       - name: Session info
         run: |
-          .Platform
+          Sys.info()
         shell: Rscript {0}
 
